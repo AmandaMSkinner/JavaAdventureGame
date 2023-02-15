@@ -38,7 +38,9 @@ public class being {
         return inventory;
     }
     public void setHealth(int health){
-        this.health=health;
+        if (health<0){
+            health=0;}
+            this.health=health;
     }
     public void setStrength(int strength){
         this.strength=strength;
