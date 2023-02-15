@@ -14,5 +14,7 @@ public class Main {
         System.out.println(evilbob);
         System.out.println(evilbob.getInventory());
 
+        battle one = new battle(bob,evilbob);
+        System.out.println(one);
     }
 }
