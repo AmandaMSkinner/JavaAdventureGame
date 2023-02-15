@@ -15,6 +15,7 @@ public class battle {
             battleAction(p, e, n);
             if (e.getHealth() == 0) {
                 System.out.println("YOU DEFEATED " + e.getIdentifier());
+                itemTransfer(p,e);
             } else if (p.getHealth() == 0) {
                 System.out.println("YOU WERE DEFEATED BY " + e.getIdentifier());
                 System.out.println("PRESS ENTER TO TRY AGAIN!");
@@ -65,5 +66,14 @@ public class battle {
     private int battleValue(int max) {
         Random ran = new Random();
         return (ran.nextInt(max) + 1);
+    }
+
+    public void itemTransfer(player p, enemy e){
+        System.out.println("You gain "+e.getGold()+" gold and all things carried by "+e.getIdentifier());
+        p.setGold(p.getGold()+e.getGold());
+        for(String i: e.getInventory()){
+            p.addItem(i);
+        }
+        System.out.println(p);
     }
 }
