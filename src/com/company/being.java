@@ -37,4 +37,22 @@ public class being {
     public List<String> getInventory() {
         return inventory;
     }
+    public void setHealth(int health){
+        this.health=health;
+    }
+    public void setStrength(int strength){
+        this.strength=strength;
+    }
+    public void setDexterity(int dexterity){
+        this.dexterity=dexterity;
+    }
+    public void setWisdom(int wisdom){
+        this.wisdom=wisdom;
+    }
+    public void setIntelligence(int intelligence){
+        this.intelligence=intelligence;
+    }
+    public void setGold(int gold){
+        this.gold=gold;
+    }
 }

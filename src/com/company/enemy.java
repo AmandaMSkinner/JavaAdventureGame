@@ -2,8 +2,8 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class player extends being{
-    public player(String identifier, int health, int strength, int dexterity, int wisdom, int intelligence){
+public class enemy extends being{
+    public enemy(String identifier, int health, int strength, int dexterity, int wisdom, int intelligence){
         this.identifier=identifier;
         this.health=health;
         this.strength=strength;
@@ -20,14 +20,8 @@ public class player extends being{
 
     @Override
     public String toString(){
-        return "****CHARACTER STATUS****" +
+        return "****ENEMY STATUS****" +
                 "\n\tNAME: "+getIdentifier()+
-                "\tHEALTH: "+getHealth()+
-                "\tGOLD: "+getGold()+
-                "\n\tSTR: "+getStrength()+
-                "\t| DEX: "+getDexterity()+
-                "\t| WIS: "+getWisdom()+
-                "\t| INT: "+getIntelligence()+
-                "\n\tINVENTORY: "+getInventory();
+                "\tHEALTH: "+getHealth();
     }
 }
