@@ -15,7 +15,7 @@ public class battle {
             battleAction(p, e, n);
             if (e.getHealth() == 0) {
                 System.out.println("YOU DEFEATED " + e.getIdentifier());
-                itemTransfer(p,e);
+                itemTransfer(p, e);
             } else if (p.getHealth() == 0) {
                 System.out.println("YOU WERE DEFEATED BY " + e.getIdentifier());
                 System.out.println("PRESS ENTER TO TRY AGAIN!");
@@ -42,10 +42,39 @@ public class battle {
     public void battleAction(player p, enemy e, int n) {
         int playerAtk = 0;
         int enemyAtk = 0;
-        if (n == 1) {
-            playerAtk = battleValue(p.getStrength());
-            enemyAtk = battleValue(e.getStrength());
-            System.out.println("You attack with a STRENGTH value of " + playerAtk);
+        switch (n) {
+            case 1:
+                playerAtk = battleValue(p.getStrength());
+                enemyAtk = battleValue(e.getStrength());
+                System.out.println("You attack with a STRENGTH value of " + playerAtk);
+                break;
+
+            case 2:
+                playerAtk = battleValue(p.getDexterity());
+                enemyAtk = battleValue(e.getDexterity());
+                System.out.println("You attack with a DEXTERITY value of " + playerAtk);
+                break;
+
+            case 3:
+                playerAtk = battleValue(p.getWisdom());
+                enemyAtk = battleValue(e.getWisdom());
+                System.out.println("You attack with a WISDOM value of " + playerAtk);
+                break;
+
+            case 4:
+                playerAtk = battleValue(p.getIntelligence());
+                enemyAtk = battleValue(e.getIntelligence());
+                System.out.println("You attack with a Intelligence value of " + playerAtk);
+                break;
+
+            case 5:
+                playerAtk = (p.getStrength() + p.getDexterity() + p.getWisdom() + p.getIntelligence()) / 5;
+                enemyAtk = (e.getStrength() + e.getDexterity() + e.getWisdom() + e.getIntelligence()) / 5;
+                break;
+            //You are punished with 1 damage if you enter an invalid choice;
+            default:
+                playerAtk=0;
+                enemyAtk=0;
         }
         if (playerAtk > enemyAtk) {
             System.out.println("You hit " + e.getIdentifier() + " for " + playerAtk + " damage!");
@@ -68,10 +97,10 @@ public class battle {
         return (ran.nextInt(max) + 1);
     }
 
-    public void itemTransfer(player p, enemy e){
-        System.out.println("You gain "+e.getGold()+" gold and all things carried by "+e.getIdentifier());
-        p.setGold(p.getGold()+e.getGold());
-        for(String i: e.getInventory()){
+    public void itemTransfer(player p, enemy e) {
+        System.out.println("You gain " + e.getGold() + " gold and all things carried by " + e.getIdentifier());
+        p.setGold(p.getGold() + e.getGold());
+        for (String i : e.getInventory()) {
             p.addItem(i);
         }
         System.out.println(p);
