@@ -68,8 +68,9 @@ public class battle {
                 break;
 
             case 5:
-                playerAtk = (p.getStrength() + p.getDexterity() + p.getWisdom() + p.getIntelligence()) / 5;
-                enemyAtk = (e.getStrength() + e.getDexterity() + e.getWisdom() + e.getIntelligence()) / 5;
+                playerAtk = (p.getStrength() + p.getDexterity() + p.getWisdom() + p.getIntelligence()) / 4;
+                enemyAtk = (e.getStrength() + e.getDexterity() + e.getWisdom() + e.getIntelligence()) / 4;
+                System.out.println("You swing with everything you've got!");
                 break;
             //You are punished with 1 damage if you enter an invalid choice;
             default:
